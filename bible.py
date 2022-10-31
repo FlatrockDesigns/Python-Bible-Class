@@ -1,3 +1,4 @@
+from pickle import NONE
 import pythonbible as bible
 
 def searchVerse(searchText):
@@ -15,6 +16,8 @@ def searchVerse(searchText):
         verse_text = verse_text + bible.format_scripture_references(bible.convert_verse_ids_to_references([ID])) + "\n" + bible.get_verse_text(ID, version=bible.Version.KING_JAMES)+"\n"
         #print ("ID",bible.format_scripture_references(bible.convert_verse_ids_to_references([ID])))
     formatted_reference = bible.format_scripture_references(references)
+    if verse_text =="":
+        verse_text = NONE
     return verse_text
-text = "My favorite verses are Philippians 4:8, Isaiah 55:13, and Philippians 4:4-7."
+text = "My favorite verses are "#Philippians 4:8, Isaiah 55:13, and Philippians 4:4-7."
 print (searchVerse(text))
